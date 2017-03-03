@@ -60,7 +60,6 @@ public class CrawlerTest {
 	    wireMock.register(get(urlEqualTo("/users/"))
 	            .willReturn(aResponse().withStatus(200).withBody("Test")
 	    ));
-	    ));
 	    crawler = new Crawler("http://localhost:8888/users/");
 	    TNode node = new TNode("http://localhost:8888/users/");
 	    crawler.crawl(node);
