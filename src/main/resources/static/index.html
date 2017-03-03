@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Stock Exchange</title>
+      <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+<body>
+<div id = "main-content">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://ec2-54-212-196-19.us-west-2.compute.amazonaws.com:3000/">Simple Stock Exchange</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Symbol" id="symbol"></input>
+        </div>
+        <button type="submit" class="btn btn-default search" id="lookup"><i class="fa fa-search" aria-hidden="true"></i>&nbspLookup</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row show-grid">
+    <div class="col-xs-6 col-md-4">
+        <div class="col-xs-12 col-md-12">
+          <h5 id="companyTitle"><span id="companySymbol" class="label label-primary"></span></h5>
+	</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Bid</th>
+      <th>Ask</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td id="bid"></td><td id="ask"></td></tr>
+  </tbody>
+</table>
+        <div class="form-group">
+	<div class="col-xs-4 col-md-5">
+          <input type="text" class="form-control" placeholder="Quantity" id="quantity"></input>
+	</div>
+	<div class="col-xs-1 col-md-3">
+          <button class="btn btn-default" id="btnBuy">Buy</button>
+	</div>
+	<div class="col-xs-1 col-md-3">
+          <button class="btn btn-default" id="btnSell">Sell</button>
+	</div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-8">
+          <h5 id="portfolio"></h5>
+	</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Quantity</th>
+      <th>Price Paid</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="owned">
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+</div>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
